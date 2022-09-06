@@ -1,0 +1,1 @@
+https://download.docker.com/mac/static/stable/x86_64/

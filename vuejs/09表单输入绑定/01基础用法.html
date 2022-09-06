@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <input v-model="message" placeholder="edit me">
+        <p>{{message}}</p>
+        <br />
+        <input v-model.lazy.trim="message0" placeholder="edit me">
+        <p>{{message0}}</p>
+        <br />
+        <input v-model.number="age" placeholder="edit me">
+        <p>{{age}}</p>
+        <br />
+        <textarea v-model="message" placeholder="edit me"></textarea>
+        <br />
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <p>{{checked}}</p>
+        <br />
+        <input type="checkbox" id="jack" value="jack" v-model="checkedNames">Jack
+        <input type="checkbox" id="john" value="john" v-model="checkedNames">john
+        <input type="checkbox" id="mike" value="mike" v-model="checkedNames">mike
+        <p>{{checkedNames}}</p>
+        <br />
+        <input type="radio" id="one" value="one" v-model="picked">one
+        <input type="radio" id="two" value="two" v-model="picked">two
+        <p>{{picked}}</p>
+        <select v-model="selected">
+            <option disabled value=""></option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <p>{{selected}}</p>
+
+        <select multiple v-model="selected0">
+            <option disabled value=""></option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <p>{{selected0}}</p>
+        <select v-model="multiSelected">
+            <option v-for="option in options" :value="option.value">
+                {{option.text}}
+            </option>
+        </select>
+        <p>{{multiSelected}}</p>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    message: '',
+                    message0: '',
+                    age: '',
+                    checked: false,
+                    checkedNames: [],
+                    picked: '',
+                    selected: '',
+                    selected0: [],
+                    options: [{
+                        text: 'one',
+                        value: 1
+                    }, {
+                        text: 'two',
+                        value: 2
+                    }, {
+                        text: 'three',
+                        value: 3
+                    }],
+                    multiSelected: ''
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

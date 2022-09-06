@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <p> Message: {{ msg }} </p>
+        <p v-once>once message: {{ msg2 }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <p v-bind:id="dynamicId">dy<a v-bind:href="url">xxx</a></p>
+        <p>{{ 2+2 }}</p>
+        <p>{{ 1==1?"YES":"NO" }}</p>
+        <P>{{ msg.split('').reverse().join('') }}</P>
+        <p v-bind:id="'list'+dynamicId">sss</p>
+        <p v-if="seen">seeeen...</p>
+        <div v-on:click="click2">
+            <div v-on:click.stop="click1">
+                <!--".stop"的作用是不在向上冒泡-->
+                click me
+            </div>
+        </div>
+        <p :if="seen">seeeen...</p>
+        <div @click="click1">
+            click me
+        </div>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    msg: "Hello Vue!",
+                    msg2: "11111",
+                    rawHtml: "<span style='color:red'>Red...</span>",
+                    dynamicId: 10,
+                    url: "http://www.baidu.com",
+                    seen: true,
+                    click1: function () {
+                        console.log("click 1")
+                    },
+                    click2: function () {
+                        console.log("click 2")
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+        app.msg2 = "22222";
+    </script>
+</body>
+
+</html>

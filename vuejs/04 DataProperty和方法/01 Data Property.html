@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <p> Count: {{ count }} </p>
+        <button @click="increment">vote</button>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    count: 4
+                }
+            },
+            methods: {
+                increment() {
+                    this.count++
+                }
+            },
+        })
+        const vm = app.mount('#app')
+        console.log(vm.$data.count)
+        console.log(vm.count)
+
+        vm.count = 10
+        console.log(vm.$data.count)
+
+        vm.$data.count = 20
+        console.log(vm.count)
+
+        vm.increment()
+        console.log(vm.$data.count)
+        console.log(vm.count)
+    </script>
+</body>
+
+</html>

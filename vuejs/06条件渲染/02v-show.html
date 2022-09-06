@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <div v-show="value === 'A'">
+            AAA
+        </div>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    value: 'A'
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

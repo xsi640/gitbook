@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="todo-list-app">
+        <todo-item v-for="item in humanList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+    </div>
+    <script>
+        const TodoList = {
+            data(){
+                return {
+                    humanList: [
+                    { id: 0, text: 'Tom' },
+                    { id: 1, text: 'Jerry' },
+                    { id: 2, text: 'Jack' },
+                ]
+                }
+            }
+        }
+        const app = Vue.createApp(TodoList)
+
+        app.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+
+        app.mount('#todo-list-app')
+    </script>
+</body>
+
+</html>

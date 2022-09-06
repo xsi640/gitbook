@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <div v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}">xxxx</div>
+        <div :style="styleObject">yyyyy</div>
+        <div :style="[a, b]">zzzzzzzz</div>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    activeColor: '#333',
+                    fontSize: 22,
+                    styleObject: {
+                        color: 'red',
+                        fontSize: '13px'
+                    },
+                    a: {
+                        color: 'yellow',
+                        fontSize: '23px'
+                    },
+                    b: {
+                        color: 'green',
+                        fontsize: '25px'
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

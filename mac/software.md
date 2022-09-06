@@ -1,0 +1,30 @@
+- Adobe Photoshop CC 2021 22.0.1
+-  Alfred
+-  BetterZip
+-  CleanMyMac
+-  IINA
+-  Karabiner-Elements
+-  Microsoft_Office_LTSC
+-  OmniGraffle
+-  Postman
+-  Proxifier
+-  SecureCRT
+-  Sourcetree
+-  Thunder
+-  Tuxera NTFS
+-  Typora
+-  VMware_Fusion_Pro
+-  VSCode
+-  XMind 8 Update 9
+-  百度输入法
+-  balenaEtcher
+-  dbeaver
+-  chrome
+-  iStat_Menus
+-  iTerm2
+-  jetbrains
+-  wko4
+-  Compressor
+-  Final Cut Pro
+-  Motion
+- XLD

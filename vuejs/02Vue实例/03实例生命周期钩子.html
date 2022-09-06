@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <p>{{ foo }}</p>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    foo: 'bar'
+                }
+            },
+            beforeCreate(){
+                console.log('beforeCreate')
+            },
+            created() {
+                console.log('created')
+            },
+            beforeMount(){
+                console.log('beforeMount')
+            },
+            mounted(){
+                console.log('mounted')
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate')
+            },
+            update(){
+                console.log('update')
+            },
+            beforeUnmount(){
+                console.log('beforeUnmount')
+            },
+            unmounted(){
+                console.log('unmounted')
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+
+</html>

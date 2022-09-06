@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: ci-jenkins
+spec:
+  selector:
+    matchLabels:
+      app: ci-jenkins
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ci-jenkins
+    spec:
+      containers:
+        - name: jenkins
+          image: jenkinsci/blueocean:1.14.0
+          securityContext:
+            runAsUser: 0
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: tz-config
+              mountPath: /etc/localtime
+            - name: docker-host
+              mountPath: /var/run/docker.sock
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+            - name: jenkins-cache
+              mountPath: /root
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /etc/localtime
+        - name: docker-host
+          hostPath:
+            path: /var/run/docker.sock
+        - name: jenkins-home
+          hostPath:
+            path: /opt/jenkins/home
+        - name: jenkins-cache
+          hostPath:
+            path: /opt/jenkins/cache

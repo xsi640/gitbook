@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <p>firstName: {{ firstName }}</p>
+        <p>lastName: {{ lastName }}</p>
+    </div>
+    <script>
+       const vm= Vue.createApp({
+            data() {
+                return {
+                    firstName: '',
+                    lastName: ''
+                }
+            },
+            computed: {
+                // 计算属性的 getter setter
+                fullName: {
+                    get(){
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    set(value){
+                        const names = value.split(' ')
+                        this.firstName = names[0]
+                        this.lastName = names[names.length - 1]
+                    }
+                }
+            }
+        }).mount('#app')
+        vm.fullName = "su yang"
+    </script>
+</body>
+
+</html>

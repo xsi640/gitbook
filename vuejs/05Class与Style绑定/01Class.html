@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id=app>
+        <div v-bind:class="{active: isActive}">xxxx</div>
+        <div :class="[isActive ? 'actve': 'yellow']">yyyyy</div>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    isActive: true
+                }
+            }
+        }).mount('#app')
+    </script>
+    <style>
+        .active {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            color: white;
+        }
+
+        .yellow {
+            color: yellow
+        }
+    </style>
+</body>
+
+</html>
