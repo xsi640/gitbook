@@ -191,6 +191,9 @@ KUBELET_EXTRA_ARGS="--cgroup-driver=systemd"
 设置kubelet为开机自启动即可，由于没有生成配置文件，集群初始化后自动启动
 # systemctl enable kubelet
 
+拉取镜像
+kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers --v=5
+
 使用kubeadm init命令初始化
 
 在k8s-master上执行，报错请看k8s报错汇总
